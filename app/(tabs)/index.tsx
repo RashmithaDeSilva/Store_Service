@@ -5,6 +5,7 @@ import useFatch from '@/hooks/useFatch';
 import { fatchItems } from '@/services/api';
 import { icons } from '@/constants/icons';
 import ItemCard from '@/components/ItemCard';
+import SearchBar from '@/components/SearchBar';
 
 
 const index = () => {
@@ -48,27 +49,22 @@ const index = () => {
             </Text>
           ) :
           (
-            // Search bar
             <View>
-              {/* <SearchBar 
+              <SearchBar 
                 onPress={ () => router.push('/search') }
-                placeholder='Search movies ...'
-              /> */}
+                placeholder='Search items ...'
+              />
 
-              <>
-                <Text className="text-lg text-white font-bold mt-5 mb-3">Items</Text>
-
-                <FlatList 
-                  data={ items }
-                  renderItem={({ item }) => (
-                    <ItemCard { ...item } />
-                  )}
-                  keyExtractor={(item) => item.id.toString()}
-                  numColumns={ 1 }
-                  className="mt-2 pb-5"
-                  scrollEnabled={ false }
-                />
-              </>
+              <FlatList 
+                data={ items }
+                renderItem={({ item }) => (
+                  <ItemCard { ...item } />
+                )}
+                keyExtractor={(item) => item.id.toString()}
+                numColumns={ 1 }
+                className="mt-5 pb-5"
+                scrollEnabled={ false }
+              />
             </View>
           ) 
         }

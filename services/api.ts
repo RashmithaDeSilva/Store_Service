@@ -7,7 +7,7 @@ export const ITEM_CONFIG = {
 
 export const fatchItems = async ({ query }: { query: string }) => {
     const endpoint = query ? 
-        `/items/filter?${ encodeURIComponent(query) }` :
+        `/items/filter?category=${ encodeURIComponent(query) }` :
         '/items';
 
     const response = await fetch(`${ ITEM_CONFIG.BASE_URL }${ endpoint }`, {
