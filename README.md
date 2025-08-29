@@ -1,50 +1,87 @@
-# Welcome to your Expo app 👋
+# Store Service Application (React Native)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## 📌 Introduction  
+The application integrates with the provided **Store Service API**, retrieves store items, and allows users to browse and search/filter them through a clean and simple mobile UI.
 
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+* API repo
+```sh
+https://github.com/vish-mv/store-service
 ```
+---
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🎯 Objectives
+- Fetch and display a list of items from the Store Service API (`/items` endpoint).
+- Provide a **search/filter feature** to find items by category, subcategory, or name.
+- Ensure proper **error handling** for network failures and empty states.
+- Deliver a clean, minimal, and user-friendly **UI/UX**.
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+## 🛠️ Tech Stack
+- **React Native (Expo)**
+- **React Navigation** for routing
+- **NativeWind (Tailwind for RN)** for styling
+- **Axios / Fetch** for API requests
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## 🏛️ Architecture
+I followed a **modular component-based architecture**:
+- **Screens**: `HomeScreen` (item list + search)
+- **Components**: `ItemCard`, `SearchBar`
+- **Services**: API functions (`/items`, `/items/filter`)
+- **Hooks**: Custom hook `useFetch` for API calls and state management
 
-Join our community of developers creating universal apps.
+This approach ensures:
+- 🔹 **Separation of concerns** (UI, API, and logic are decoupled)  
+- 🔹 **Scalability** (easy to extend with more screens/features)  
+- 🔹 **Maintainability** (clear folder structure, reusable components)  
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 🎨 UI/UX Design Choices
+- **Simple card-based layout** for items (showing name, brand, category).
+- **Search bar** at the top for quick filtering.
+- **FlatList with pull-to-refresh** for smooth browsing.
+- **Error & empty states** with descriptive messages.
+
+The goal was to keep the interface **minimal, intuitive, and mobile-friendly**.
+
+---
+
+## 🚀 Features
+- ✅ Fetch items from API
+- ✅ Display item list with brand & category
+- ✅ Search items by keyword / category
+- ✅ Error handling for failed API calls
+- ✅ Loading indicators
+
+---
+
+## ⚠️ Known Issues / Improvements
+- Pagination not yet implemented (currently fetches all items at once).
+- UI design can be enhanced with images and animations.
+- State management is handled via hooks only (no external state management library).
+
+---
+
+## 🤖 AI Tool Declaration
+- **ChatGPT**: Used to generate boilerplate code for API service, refactor components, and draft this README.
+- **GitHub Copilot**: Assisted in generating repetitive JSX structures.
+
+---
+
+## 📷 Screenshots
+![alt text](README-imgs/home.jpg)
+![alt text](README-imgs/search.jpg)
+
+---
+
+## ▶️ Running the Project
+1. Clone the repo:
+   ```bash
+   https://github.com/RashmithaDeSilva/Store_Service.git
+   cd Store_Service
+   npm i
+   npm run start
+   ```
